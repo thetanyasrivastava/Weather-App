@@ -93,6 +93,16 @@ http://localhost:3000
 * Trimmed and encoded user input for clean API requests
 * Handled API errors gracefully
 
+
+---
+
+## 📸 Preview
+<img width="1888" height="871" alt="Screenshot 2026-04-17 192452" src="https://github.com/user-attachments/assets/a3035e3b-a8d2-4c98-9156-bdf78c462cd7" />
+
+<img width="1884" height="864" alt="Screenshot 2026-04-17 192531" src="https://github.com/user-attachments/assets/3d1e7c5e-8d22-4689-96a8-b3831c3da4aa" />
+
+<img width="1883" height="866" alt="Screenshot 2026-04-17 192516" src="https://github.com/user-attachments/assets/0ea43dba-7a13-4c8d-baa3-9cdc6e24f1aa" />
+
 ---
 
 ## ⚠️ Limitations
@@ -109,14 +119,6 @@ http://localhost:3000
 * Use latitude & longitude for more accurate results
 * Refactor into MVC structure (controllers/services)
 
----
-
-## 📸 Preview
-<img width="1888" height="871" alt="Screenshot 2026-04-17 192452" src="https://github.com/user-attachments/assets/a3035e3b-a8d2-4c98-9156-bdf78c462cd7" />
-
-<img width="1884" height="864" alt="Screenshot 2026-04-17 192531" src="https://github.com/user-attachments/assets/3d1e7c5e-8d22-4689-96a8-b3831c3da4aa" />
-
-<img width="1883" height="866" alt="Screenshot 2026-04-17 192516" src="https://github.com/user-attachments/assets/0ea43dba-7a13-4c8d-baa3-9cdc6e24f1aa" />
 
 
 ---
