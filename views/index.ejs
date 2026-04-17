@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Weather App</title>
+    <!-- <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    button {
+      margin: 10px;
+      padding: 15px 30px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+    }
+
+    #getWeather {
+      background-color: #3498db;
+    }
+
+
+    .response-area {
+      margin-top: 20px;
+      background-color: white;
+      padding: 20px;
+    }
+  </style> -->
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    /* background: linear-gradient(to right, #74ebd5, #9face6); */
+    transition: background 0.5s ease;
+  }
+  
+  /* Default */
+  body.default {
+    background: linear-gradient(to right, #74ebd5, #9face6);
+  }
+
+  /* Weather based */
+  body.Clear {
+    background: linear-gradient(to right, #fceabb, #f8b500);
+  }
+
+  body.Clouds {
+    background: linear-gradient(to right, #bdc3c7, #2c3e50);
+  }
+
+  body.Rain {
+    background: linear-gradient(to right, #4b79a1, #283e51);
+  }
+
+  body.Snow {
+    background: linear-gradient(to right, #e6dada, #274046);
+  }
+
+  body.Thunderstorm {
+    background: linear-gradient(to right, #141e30, #243b55);
+  }
+
+  body.Haze {
+    background: linear-gradient(to right, #757f9a, #d7dde8);
+  }
+
+  body.Fog {
+    background: linear-gradient(to right, #cfd9df, #e2ebf0);
+  }
+
+  body.Mist {
+    background: linear-gradient(to right, #bdc3c7, #2c3e50);
+  }
+
+  body.Smoke {
+    background: linear-gradient(to right, #434343, #000000);
+  }
+
+  .container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 300px;
+  }
+
+  input {
+    padding: 10px;
+    width: 80%;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #2980b9;
+  }
+
+  .response-area {
+    margin-top: 20px;
+  }
+
+  .weather-card {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+  }
+
+  .weather-card {
+    background: linear-gradient(to right, #6dd5ed, #2193b0);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 15px;
+  }
+
+  .weather-card p {
+    margin: 8px 0;
+    font-size: 18px;
+  }
+
+  #suggestions {
+    margin-top: 5px;
+    padding: 0;
+    border: 1px solid #ccc;
+    max-height: 150px;
+    overflow-y: auto;
+    background: white;
+  }
+
+  #suggestions li {
+    list-style: none;
+    padding: 8px;
+    cursor: pointer;
+  }
+
+  #suggestions li:hover {
+    background-color: #eee;
+  }
+
+</style>
+</head>
+
+<body class="<%= weather && weather.main ? weather.main : 'default' %>">
+
+   <div class="container">
+
+    <h2>🌤 Weather App</h2>
+
+    <!-- <button type="submit" id="getWeather" onclick="window.location.href='/getWeather'">Get Weather</button> -->
+
+    <form action="/getWeather" method="GET">
+        <input 
+            type="text" 
+            id="cityInput"
+            name="city" 
+            placeholder="Enter City Name" 
+            autocomplete="off"
+            required
+        />
+
+        <ul id="suggestions"></ul>
+
+        <button type="submit">Get Weather</button>
+    </form>
+
+  <div class="response-area">
+    
+    <% if(error) {%>
+        <p style="color:red;"><%= error %></p>
+
+    <% } else if(weather) { %>
+        <%
+        let icon = "🌍";
+
+        if(weather.main == "Clear") icon = "☀️";
+        else if(weather.main == "Clouds") icon = "☁️";
+        else if(weather.main == "Rain") icon = "🌧";
+        else if(weather.main == "Snow") icon = "❄️";
+        else if(weather.main == "Thunderstorm") icon = "⛈"; 
+        else if (["Haze", "Fog", "Mist"].includes(weather.main)) icon = "🌫";
+        else if (weather.main === "Smoke") icon = "🔥";
+        %>
+
+        <p>📍City: <%= weather.city %></p>
+        <p>🌡Temperature: <%= weather.weather %> °C</p>
+        <p>🌥 Condition: <%= icon %> <%= weather.desc %></p>
+
+    <% } else { %>
+        <p>Enter a city to check weather 🌍</p>
+    <% } %>
+
+  </div>
+
+</div>
+
+<script src="/js/script.js"></script>
+</body>
+</html>

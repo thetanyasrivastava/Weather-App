@@ -1,0 +1,21 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "It provides the weather for a given location",
+  "keywords": [
+    "weather"
+  ],
+  "license": "ISC",
+  "author": "Tanya",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "axios": "^1.15.0",
+    "dotenv": "^17.4.1",
+    "ejs": "^5.0.2",
+    "express": "^5.2.1"
+  }
+}
